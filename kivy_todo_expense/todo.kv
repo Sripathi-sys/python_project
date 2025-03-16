@@ -1,0 +1,17 @@
+BoxLayout:
+    orientation: 'vertical'
+    
+    TextInput:
+        id: task_input
+        hint_text: "Enter a new task"
+    
+    Button:
+        text: "Add Task"
+        on_press: app.add_task()
+    
+    ScrollView:
+        BoxLayout:
+            id: task_list
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height

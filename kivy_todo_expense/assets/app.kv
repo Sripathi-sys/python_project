@@ -1,0 +1,39 @@
+TabbedPanel:
+    do_default_tab: False
+
+    TabbedPanelItem:
+        text: 'To-Do List'
+        BoxLayout:
+            orientation: 'vertical'
+            TextInput:
+                id: task_input
+                hint_text: "Enter a new task"
+            Button:
+                text: "Add Task"
+                on_press: root.add_task()
+            ScrollView:
+                BoxLayout:
+                    id: task_list
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+
+    TabbedPanelItem:
+        text: 'Expenses'
+        BoxLayout:
+            orientation: 'vertical'
+            TextInput:
+                id: expense_amount
+                hint_text: "Enter amount (₹)"
+            TextInput:
+                id: expense_category
+                hint_text: "Enter category (Food, Travel, etc.)"
+            Button:
+                text: "Add Expense"
+                on_press: root.add_expense()
+            ScrollView:
+                BoxLayout:
+                    id: expense_list
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height

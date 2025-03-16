@@ -1,0 +1,279 @@
+ScreenManager:
+    ToDoScreen:
+    ExpenseScreen:
+
+<ToDoScreen>:
+    name: "todo"
+    BoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "To-Do List"
+            left_action_items: [["menu", lambda x: app.change_screen("expense")]]
+            md_bg_color: 0.1, 0.6, 0.8, 1  
+
+        ScrollView:
+            MDList:
+                id: task_list
+
+        MDFloatLayout:
+            MDFloatingActionButton:
+                icon: "plus"
+                md_bg_color: 0, 0.5, 0.7, 1
+                pos_hint: {"right": 0.95, "bottom": 0.1}
+                on_release: app.add_task()
+
+            MDTextField:
+                id: task_input
+                hint_text: "Enter task"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5, "center_y": 0.05}
+
+<ExpenseScreen>:
+    name: "expense"
+    BoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Expense Tracker"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("todo")]]
+            md_bg_color: 0.8, 0.2, 0.2, 1  
+
+        ScrollView:
+            MDList:
+                id: expense_list
+
+        MDFloatLayout:
+            MDFloatingActionButton:
+                icon: "plus"
+                md_bg_color: 0.7, 0, 0, 1
+                pos_hint: {"right": 0.95, "bottom": 0.1}
+                on_release: app.add_expense()
+
+            MDTextField:
+                id: expense_amount
+                hint_text: "Enter amount"
+                size_hint_x: 0.4
+                pos_hint: {"x": 0.05, "center_y": 0.1}
+            
+            MDTextField:
+                id: expense_category
+                hint_text: "Category"
+                size_hint_x: 0.4
+                pos_hint: {"x": 0.55, "center_y": 0.1}
+
+    MDRaisedButton:
+        text: "Export Data"
+        pos_hint: {"right": 0.9, "top": 0.9}
+        on_release: app.export_data()
+<ExpenseScreen>:
+    name: "expense"
+    BoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Expense Tracker"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("todo")]]
+            md_bg_color: 0.8, 0.2, 0.2, 1
+
+        ScrollView:
+            MDList:
+                id: expense_list
+
+        MDFloatLayout:
+            MDFloatingActionButton:
+                icon: "plus"
+                md_bg_color: 0.7, 0, 0, 1
+                pos_hint: {"right": 0.95, "bottom": 0.1}
+                on_release: app.add_expense()
+
+            MDTextField:
+                id: expense_amount
+                hint_text: "Enter amount"
+                size_hint_x: 0.4
+                pos_hint: {"x": 0.05, "center_y": 0.1}
+
+            MDTextField:
+                id: expense_category
+                hint_text: "Category"
+                size_hint_x: 0.4
+                pos_hint: {"x": 0.55, "center_y": 0.1}
+
+            MDRaisedButton:
+                text: "Select Date"
+                pos_hint: {"center_x": 0.5, "center_y": 0.2}
+                on_release: app.show_date_picker()
+<ExpenseScreen>:
+    name: "expense"
+    BoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Expense Tracker"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("todo")]]
+            md_bg_color: 0.8, 0.2, 0.2, 1
+
+        MDLabel:
+            id: total_expenses
+            text: "Total Expenses: ₹0"
+            halign: "center"
+            font_style: "H6"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            MDList:
+                id: expense_list
+
+        MDFloatLayout:
+            MDFloatingActionButton:
+                icon: "plus"
+                md_bg_color: 0.7, 0, 0, 1
+                pos_hint: {"right": 0.95, "bottom": 0.1}
+                on_release: app.add_expense()
+
+            MDTextField:
+                id: expense_amount
+                hint_text: "Enter amount"
+                size_hint_x: 0.4
+                pos_hint: {"x": 0.05, "center_y": 0.1}
+
+            MDTextField:
+                id: expense_category
+                hint_text: "Category"
+                size_hint_x: 0.4
+                pos_hint: {"x": 0.55, "center_y": 0.1}
+
+            MDRaisedButton:
+                text: "Select Date"
+                pos_hint: {"center_x": 0.5, "center_y": 0.2}
+                on_release: app.show_date_picker()
+<ExpenseScreen>:
+    name: "expense"
+    BoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Expense Tracker"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("todo")]]
+            md_bg_color: 0.8, 0.2, 0.2, 1
+
+        MDLabel:
+            id: total_expenses
+            text: "Total Expenses: ₹0"
+            halign: "center"
+            font_style: "H6"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            MDList:
+                id: expense_list
+
+        MDFloatLayout:
+            MDFloatingActionButton:
+                icon: "plus"
+                md_bg_color: 0.7, 0, 0, 1
+                pos_hint: {"right": 0.95, "bottom": 0.1}
+                on_release: app.add_expense()
+
+            MDTextField:
+                id: expense_amount
+                hint_text: "Enter amount"
+                size_hint_x: 0.4
+                pos_hint: {"x": 0.05, "center_y": 0.1}
+
+            MDTextField:
+                id: expense_category
+                hint_text: "Category"
+                size_hint_x: 0.4
+                pos_hint: {"x": 0.55, "center_y": 0.1}
+
+            MDRaisedButton:
+                text: "Select Date"
+                pos_hint: {"center_x": 0.5, "center_y": 0.2}
+                on_release: app.show_date_picker()
+<ExpenseScreen>:
+    name: "expense"
+    BoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Expense Tracker"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("todo")]]
+            md_bg_color: 0.8, 0.2, 0.2, 1
+
+        MDLabel:
+            id: total_expenses
+            text: "Total Expenses: ₹0"
+            halign: "center"
+            font_style: "H6"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            MDList:
+                id: expense_list
+
+        MDFloatLayout:
+            MDFloatingActionButton:
+                icon: "plus"
+                md_bg_color: 0.7, 0, 0, 1
+                pos_hint: {"right": 0.95, "bottom": 0.1}
+                on_release: app.add_expense()
+
+            MDTextField:
+                id: expense_amount
+                hint_text: "Enter amount"
+                size_hint_x: 0.4
+                pos_hint: {"x": 0.05, "center_y": 0.1}
+
+            MDTextField:
+                id: expense_category
+                hint_text: "Category"
+                size_hint_x: 0.4
+                pos_hint: {"x": 0.55, "center_y": 0.1}
+
+            MDRaisedButton:
+                text: "Select Date"
+                pos_hint: {"center_x": 0.5, "center_y": 0.2}
+                on_release: app.show_date_picker()
+<ExpenseScreen>:
+    name: "expense"
+    BoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Expense Tracker"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("todo")]]
+            md_bg_color: 0.8, 0.2, 0.2, 1
+
+        MDLabel:
+            id: total_expenses
+            text: "Total Expenses: ₹0"
+            halign: "center"
+            font_style: "H6"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            MDList:
+                id: expense_list
+
+        MDFloatLayout:
+            MDFloatingActionButton:
+                icon: "plus"
+                md_bg_color: 0.7, 0, 0, 1
+                pos_hint: {"right": 0.95, "bottom": 0.1}
+                on_release: app.add_expense()
+
+            MDTextField:
+                id: expense_amount
+        BoxLayout:
+    orientation: 'vertical'
+
+    MDToolbar:
+        title: "To-Do List"
+        left_action_items: [["menu", lambda x: app.change_screen("expense")]]
+        right_action_items: [["theme-light-dark", lambda x: app.toggle_theme()]]
+        md_bg_color: 0.1, 0.6, 0.8, 1

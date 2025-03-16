@@ -1,0 +1,49 @@
+def add_expense(self):
+        amount = self.ids.expense_amount.text.strip()
+        category = self.ids.expense_category.text.strip()
+        if amount and category:
+            expense_text = f"{category}: ₹{amount}"
+            
+            expense_box = BoxLayout(orientation='horizontal', size_hint_y=None, height=40)
+            expense_label = Label(text=expense_text, size_hint_x=0.8)
+            delete_button = Button(text="❌", size_hint_x=0.2)
+
+            delete_button.bind(on_press=lambda btn: self.remove_expense(expense_box, expense_text))
+
+            expense_box.add_widget(expense_label)
+            expense_box.add_widget(delete_button)
+
+            self.ids.expense_list.add_widget(expense_box)
+            self.db.save_expense(expense_text)
+
+            self.ids.expense_amount.text = ""
+            self.ids.expense_category.text = ""
+
+    def remove_expense(self, expense_box, expense_text):
+        self.ids.expense_list.remove_widget(expense_box)
+        self.db.delete_expense(expense_text)
+
+    def load_expenses(self):
+        expenses = self.db.load_expenses()
+        for expense in expenses:
+            self.add_expense_to_ui(expense)
+
+    def add_expense_to_ui(self, expense_text):
+        expense_box = BoxLayout(orientation='horizontal', size_hint_y=None, height=40)
+        expense_label = Label(text=expense_text, size_hint_x=0.8)
+        delete_button = Button(text="❌", size_hint_x=0.2)
+
+        delete_button.bind(on_press=lambda btn: self.remove_expense(expense_box, expense_text))
+
+        expense_box.add_widget(expense_label)
+        expense_box.add_widget(delete_button)
+
+        self.ids.expense_list.add_widget(expense_box)
+
+ToDoExpenseApp().run()
+
+
+
+    BoxLayout:
+        size_hint_y: 0.4
+        id: chart
